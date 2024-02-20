@@ -78,3 +78,42 @@ bindkey -M visual '^[[P' vi-delete
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+
+# List all files in long format
+alias ll='ls -alh'
+
+# List all files, including hidden files, in long format
+alias la='ls -la'
+
+# Clear the screen
+alias cls='clear'
+
+# Alias for grep with color
+alias grep='grep --color=auto'
+
+
+# windows back compat
+
+# Clear the terminal screen
+alias cls='clear'
+
+# Display the IP configuration
+alias ipconfig='ip a'
+
+# Ping with a default of 4 attempts (similar to the default behavior in Windows)
+alias ping='ping -c 4'
+
+# Display disk usage in a human-readable format
+alias diskusage='df -h'
+
+# Show free memory
+alias mem='free -h'
+
+# List open network ports
+alias netstat='ss -tulwn'
+
+# Copy, move, and remove operations, prefixed with 'win' to avoid naming conflicts
+alias copy='cp'
+alias move='mv'
+alias del='rm -rf'
+alias ren='mv'
