@@ -51,4 +51,3 @@ Feel free to modify `install.sh` to include additional configuration files or ha
 Contributions to improve the script or add more configurations are welcome. Please submit a pull request or open an issue if you have suggestions or need help.
 
 Thank you for using this dotfiles setup guide!
-```
