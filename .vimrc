@@ -49,3 +49,29 @@ nnoremap <C-Right> :tabnext<CR>
 " Show whitespace
 set list
 set listchars=tab:▸\ ,space:·,eol:¬,trail:·,extends:>,precedes:<
+
+function! InsertAsClause()
+    " Get the current column number
+    let l:col = col('.')
+    " Calculate how many spaces are needed to reach the 80th column
+    let l:spaces_needed = 80 - l:col
+    " If already past the 80th column, don't add spaces
+    if l:spaces_needed < 0
+        let l:spaces_needed = 1
+    endif
+    " Insert the spaces and the AS keyword
+    execute "normal! i" . repeat(' ', l:spaces_needed) . "AS "
+endfunction
+
+" Map the function to a key combination, <Leader>a in this case
+nnoremap <Leader>a :call InsertAsClause()<CR>
+
+function! PromptReplaceGlobal()
+    let l:find = input('Find: ')
+    let l:replace = input('Replace with: ')
+    let l:cmd = '%s/' . escape(l:find, '/\') . '/' . escape(l:replace, '/\') . '/gc'
+    execute l:cmd
+endfunction
+
+nnoremap <C-R> :call PromptReplaceGlobal()<CR>
+

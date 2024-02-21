@@ -117,3 +117,5 @@ alias copy='cp'
 alias move='mv'
 alias del='rm -rf'
 alias ren='mv'
+
+alias vim="nvim"
