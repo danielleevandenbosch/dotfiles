@@ -45,6 +45,27 @@ create_symlink() {
 
 # Base directory for dotfiles
 DOTFILES_DIR="$HOME/dotfiles"
+# Function to set Zsh as the default shell if it exists
+set_zsh_default() {
+    if command -v zsh &> /dev/null; then
+        echo_color $YELLOW "Zsh is installed. Do you want to set it as the default shell? (y/n)"
+        read -r choice
+        if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
+            if chsh -s "$(which zsh)"; then
+                echo_color $GREEN "Zsh is now the default shell."
+            else
+                echo_color $RED "Failed to set Zsh as the default shell."
+            fi
+        else
+            echo_color $GREEN "Not setting Zsh as the default shell."
+        fi
+    else
+        echo_color $YELLOW "Zsh is not installed, skipping."
+    fi
+}
+
+# Attempt to set Zsh as the default shell (Added before the completion message)
+set_zsh_default
 
 # Create symlinks
 create_symlink "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
