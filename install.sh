@@ -5,12 +5,53 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
+DOTFILES_DIR="$HOME/dotfiles"
+CSV_FILE_PATH="$DOTFILES_DIR/prog.csv"
 
 # Function to print messages with color
 echo_color() {
     local color=$1 text=$2
     echo -e "${color}${text}${NC}"
 }
+
+
+# Function to install applications from a CSV file
+install_applications() {
+    local csv_path=$1
+    while IFS=, read -r source name purpose; do
+        # Skip lines starting with '#'
+        [[ "$source" =~ ^#.*$ ]] && continue
+
+        # Determine the action based on the source field
+        if [ -z "$source" ]; then  # Default package manager
+            if command -v apt &> /dev/null; then
+                echo_color $YELLOW "Installing $name using apt... $purpose"
+                sudo apt install -y "$name"
+            elif command -v pacman &> /dev/null; then
+                echo_color $YELLOW "Installing $name using pacman... $purpose"
+                sudo pacman -S --noconfirm "$name"
+            else
+                echo_color $RED "Unsupported package manager. Skipping $name."
+            fi
+        elif [ "$source" == "git" ]; then
+            echo_color $YELLOW "Cloning $name... $purpose"
+            git clone "$name" "$HOME/$(basename $name)"
+        elif [ "$source" == "aur" ]; then
+            echo_color $YELLOW "Installing $name from AUR... $purpose"
+            # AUR installation logic here (e.g., using yay or another AUR helper)
+            yay -S --noconfirm "$name"
+        else
+            echo_color $RED "Unknown source $source for $name. Skipping."
+        fi
+    done < "$csv_path"
+}
+
+# Check if the operating system is Debian or Arch based and install applications
+if [ -f "$CSV_FILE_PATH" ]; then
+    install_applications "$CSV_FILE_PATH"
+else
+    echo_color $RED "CSV file with applications not found."
+fi
 
 # Define helper function for creating directories and symlinks
 create_symlink() {
@@ -43,8 +84,6 @@ create_symlink() {
     echo_color $GREEN "Created symlink for $source -> $target"
 }
 
-# Base directory for dotfiles
-DOTFILES_DIR="$HOME/dotfiles"
 # Function to set Zsh as the default shell if it exists
 set_zsh_default() {
     if command -v zsh &> /dev/null; then
