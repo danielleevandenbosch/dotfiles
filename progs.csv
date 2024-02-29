@@ -9,4 +9,5 @@
 ,sc-im,is an Excel-like terminal spreadsheet manager.
 ,colordiff
 git,https://github.com/github/copilot.vim.git,../.config/nvim/pack/github/start/copilot.vim
-
+,nodejs,Is server side javascript
+,npm,Is node package manager
