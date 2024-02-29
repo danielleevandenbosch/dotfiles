@@ -8,4 +8,4 @@
 ,xclip,allows for copying and pasting from the command line.
 ,sc-im,is an Excel-like terminal spreadsheet manager.
 ,colordiff
-git ,git clone https://github.com/github/copilot.vim.git \ ~/.config/nvim/pack/github/start/copilot.vim
+git ,https://github.com/github/copilot.vim.git \ ~/.config/nvim/pack/github/start/copilot.vim
