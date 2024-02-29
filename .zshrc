@@ -119,3 +119,13 @@ alias del='rm -rf'
 alias ren='mv'
 
 alias vim="nvim"
+
+clip() {
+  if [ -f "$1" ]; then
+    cat "$1" | xclip -selection clipboard
+    echo "Contents of $1 copied to clipboard."
+  else
+    echo "File not found: $1"
+  fi
+}
+
