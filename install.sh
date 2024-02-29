@@ -7,7 +7,8 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 DOTFILES_DIR="$HOME/dotfiles"
 CSV_FILE_PATH="$DOTFILES_DIR/progs.csv"
-
+USER_NAME=$(logname)
+HOME_DIR=$(getent passwd "$USER_NAME" | cut -d: -f6)
 # Function to print messages with color
 echo_color() {
     local color=$1 text=$2
@@ -34,8 +35,11 @@ install_applications() {
                 echo_color $RED "Unsupported package manager. Skipping $name."
             fi
         elif [ "$source" == "git" ]; then
-            echo_color $YELLOW "Cloning $name... $purpose"
-            git clone "$name" "$HOME/$(basename $name)"
+            IFS=',' read -r url target_dir <<< "$name"
+            target_dir=$purpose
+            echo_color $YELLOW "Cloning $url into $target_dir... $purpose"
+            mkdir -p "$(dirname "$target_dir")"
+            git clone "$url" "$target_dir"
         elif [ "$source" == "aur" ]; then
             echo_color $YELLOW "Installing $name from AUR... $purpose"
             # AUR installation logic here (e.g., using yay or another AUR helper)
