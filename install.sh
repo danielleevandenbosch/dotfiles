@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 DOTFILES_DIR="$HOME/dotfiles"
-CSV_FILE_PATH="$DOTFILES_DIR/prog.csv"
+CSV_FILE_PATH="$DOTFILES_DIR/progs.csv"
 
 # Function to print messages with color
 echo_color() {
