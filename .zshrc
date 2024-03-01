@@ -129,3 +129,4 @@ clip() {
   fi
 }
 
+export EDITOR=nvim
