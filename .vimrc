@@ -13,7 +13,7 @@ set shiftwidth=4
 set expandtab
 
 " Enable mouse support
-set mouse=a
+" set mouse=a
 
 " Highlight search results
 set hlsearch
