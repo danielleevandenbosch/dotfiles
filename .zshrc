@@ -120,6 +120,16 @@ alias ren='mv'
 
 alias vim="nvim"
 
+
+function headll {
+    ll | head
+}
+function tailll {
+    ll | tail
+}
+
+alias headll=headll
+alias tailll=tailll
 clip() {
   if [ -f "$1" ]; then
     cat "$1" | xclip -selection clipboard
