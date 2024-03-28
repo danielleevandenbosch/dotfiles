@@ -1,3 +1,6 @@
+# Dotfiles Purpose
+I created this as inspired from https://larbs.xyz/ . Basically it is my own version of setting up custom commands in zsh for myself. While I am at it, I also install a series of applications I find useful. This is particurally helpful when moving from linux machine to machine and user to user for various processes. 
+
 # Dotfiles Installation Guide
 
 This guide explains how to use the `install.sh` script to set up your dotfiles. The script creates symbolic links for common configuration files like `.bashrc`, `.vimrc`, `.zshrc`, and the Neovim configuration `init.vim`. It ensures that your environment is set up quickly and consistently across different machines.
