@@ -1,5 +1,5 @@
 # Dotfiles Purpose
-I created this as inspired from https://larbs.xyz/ . Basically it is my own version of setting up custom commands in zsh for myself. While I am at it, I also install a series of applications I find useful. This is particurally helpful when moving from linux machine to machine and user to user for various processes. 
+I created this as inspired (not forked) from https://larbs.xyz/ . Basically it is my own version of setting up custom commands in zsh for myself. While I am at it, I also install a series of applications I find useful. This is particurally helpful when moving from linux machine to machine and user to user for various processes. 
 
 # Dotfiles Installation Guide
 
