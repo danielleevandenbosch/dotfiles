@@ -146,3 +146,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias cdhtml='cd /var/www/html'
+
+gacp()
+{
+    git add -A
+    echo "Enter commit message: "
+    read commitMessage
+    git commit -m "$commitMessage"
+    git push
+}
+
