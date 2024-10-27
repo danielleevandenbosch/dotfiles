@@ -159,3 +159,10 @@ gacp()
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
 xset r rate 300 50
+
+# Zsh History Configuration
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+HISTSIZE=10000
+SAVEHIST=20000
+HISTFILE=~/.zsh_history
