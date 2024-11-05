@@ -166,3 +166,7 @@ setopt SHARE_HISTORY
 HISTSIZE=10000
 SAVEHIST=20000
 HISTFILE=~/.zsh_history
+
+alias datagrip='/opt/DataGrip-2020.2.3/bin/datagrip.sh'
+alias nano="vim"
+
