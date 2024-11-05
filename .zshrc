@@ -169,4 +169,7 @@ HISTFILE=~/.zsh_history
 
 alias datagrip='/opt/DataGrip-2020.2.3/bin/datagrip.sh'
 alias nano="vim"
+alias logout='pkill -KILL -u $USER'
+alias teams="flatpak run com.github.IsmaelMartinez.teams_for_linux"
+alias outlook="flatpak run io.github.mahmoudbahaa.outlook_for_linux"
 
