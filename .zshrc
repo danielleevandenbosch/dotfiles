@@ -172,4 +172,31 @@ alias nano="vim"
 alias logout='pkill -KILL -u $USER'
 alias teams="flatpak run com.github.IsmaelMartinez.teams_for_linux"
 alias outlook="flatpak run io.github.mahmoudbahaa.outlook_for_linux"
+alias atom="flatpak run io.atom.Atom"
+
+export PATH=$PATH:~/gpt4all/bin
+
+# Alias for Teams for Linux
+alias teams="flatpak run com.github.IsmaelMartinez.teams_for_linux"
+
+# Alias for Visual Studio Code
+alias code="flatpak run com.visualstudio.code"
+
+# Alias for Atom Editor
+alias atom="flatpak run io.atom.Atom"
+
+# Alias for Outlook for Linux
+alias outlook="flatpak run io.github.mahmoudbahaa.outlook_for_linux"
+
+# Alias for Eclipse Java IDE
+alias eclipse="flatpak run org.eclipse.Java"
+alias datagrip='env _JAVA_AWT_WM_NONREPARENTING=1 /opt/DataGrip-2020.2.3/bin/datagrip.sh'
+
+mkassets() {
+  mkdir -p assets/css assets/js assets/api assets/images
+  touch assets/css/index.css
+  touch assets/js/index.js
+  touch assets/api/index.php
+  echo "Directory structure and files created successfully in $(pwd)"
+}
 

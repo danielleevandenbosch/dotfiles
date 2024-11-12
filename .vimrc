@@ -75,3 +75,11 @@ endfunction
 
 nnoremap <C-R> :call PromptReplaceGlobal()<CR>
 
+" Initialize vim-plug in Neovim's plugin directory
+call plug#begin('~/.local/share/nvim/plugged')
+
+" Add Copilot plugin
+Plug 'github/copilot.vim'
+
+call plug#end()
+
