@@ -107,8 +107,43 @@ set_zsh_default() {
     fi
 }
 
+
+set_xinitrc_default()
+{
+    # does the computer have dwm installed?
+        echo_color $YELLOW "Do you want to set xinitrc taylored for dwm? (y/n)"
+        read -r choice
+        if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
+            if [ -f "$HOME/.xinitrc" ]; then
+                echo_color $YELLOW "Backing up and replacing $HOME/.xinitrc"
+                mv "$HOME/.xinitrc" "$HOME/.xinitrc.backup"
+            fi
+            create_symlink "$DOTFILES_DIR/.xinitrc" "$HOME/.xinitrc"
+        else
+            echo_color $GREEN "Not setting Dwm as the default window manager."
+        fi
+}
+
+set_xprofile_default()
+{
+    # does the computer have dwm installed?
+        echo_color $YELLOW "Do you want to set the dotfiles xprofile taylored for dwm? (y/n)"
+        read -r choice
+        if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
+            if [ -f "$HOME/.xprofile" ]; then
+                echo_color $YELLOW "Backing up and replacing $HOME/.xprofile"
+                mv "$HOME/.xprofile" "$HOME/.xprofile.backup"
+            fi
+            create_symlink "$DOTFILES_DIR/.xprofile" "$HOME/.xprofile"
+        else
+            echo_color $GREEN "Not setting Dwm as the default window manager."
+        fi
+}
+
 # Attempt to set Zsh as the default shell (Added before the completion message)
 set_zsh_default
+set_xinitrc_default
+set_xprofile_default
 
 # Create symlinks
 create_symlink "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"

@@ -77,9 +77,15 @@ nnoremap <C-R> :call PromptReplaceGlobal()<CR>
 
 " Initialize vim-plug in Neovim's plugin directory
 call plug#begin('~/.local/share/nvim/plugged')
-
 " Add Copilot plugin
 Plug 'github/copilot.vim'
-
+" Add the Emmet plugin with the correct spelling
+Plug 'mattn/emmet-vim'
 call plug#end()
+
+" Map Tab to expand Emmet abbreviations like in VS Code
+autocmd FileType html,css,xml,js imap <silent><expr> <Tab> emmet#expandAbbrIntelligent('<Tab>')
+let g:user_emmet_expandabbr_key = '<Tab>'
+
+
 
