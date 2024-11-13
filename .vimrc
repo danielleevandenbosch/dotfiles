@@ -84,8 +84,7 @@ Plug 'mattn/emmet-vim'
 call plug#end()
 
 " Map Tab to expand Emmet abbreviations like in VS Code
-autocmd FileType html,css,xml,js imap <silent><expr> <Tab> emmet#expandAbbrIntelligent('<Tab>')
-let g:user_emmet_expandabbr_key = '<Tab>'
-
-
-
+" Set Emmet's expand abbreviation key to Ctrl+Tab
+let g:user_emmet_expandabbr_key = '<C-Tab>'
+" Remap Emmet expand key for specific file types if necessary
+autocmd FileType html,php,css,xml,js imap <silent><expr> <C-Tab> emmet#expandAbbrIntelligent('<C-Tab>')
