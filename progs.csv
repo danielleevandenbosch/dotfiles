@@ -18,3 +18,5 @@ git,https://github.com/github/copilot.vim.git,../.config/nvim/pack/github/start/
 ,python3-venv
 ,python3-dev
 ,python3-tk
+,xdotool
+,xbindkeys

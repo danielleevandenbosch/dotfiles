@@ -12,3 +12,6 @@ feh --bg-scale ~/.local/share/bg.jpg  # or your correct background path
 # Start picom for transparency
 picom -b
 
+
+xbindkeys
+

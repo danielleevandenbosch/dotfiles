@@ -1,1 +1,4 @@
 add support for python and pip so we can have applications like yt-dlp.
+modify the install script to prompt and loop the dot files in this dir to be symlinked to the home dir.
+
+determine how I can scroll up and down in the terminal without using the mouse.
