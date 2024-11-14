@@ -1,9 +1,11 @@
 #!/bin/sh 
 # Set the background image with feh
-feh --bg-scale ~/.local/share/bg.jpg  # or your correct background path
 
 # Run the monitor setup script if you have custom monitor arrangements
 ~/setup-monitors.sh
+
+feh --bg-scale ~/.local/share/bg.jpg  # or your correct background path
+
 
 
 
