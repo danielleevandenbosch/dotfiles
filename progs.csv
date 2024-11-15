@@ -20,3 +20,4 @@ git,https://github.com/github/copilot.vim.git,../.config/nvim/pack/github/start/
 ,python3-tk
 ,xdotool
 ,xbindkeys
+,leafpad,is a simple text editor.

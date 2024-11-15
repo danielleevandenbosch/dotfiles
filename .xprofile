@@ -13,5 +13,5 @@ feh --bg-scale ~/.local/share/bg.jpg  # or your correct background path
 picom -b
 
 
-xbindkeys
+xbindkeys &
 

@@ -190,7 +190,7 @@ alias outlook="flatpak run io.github.mahmoudbahaa.outlook_for_linux"
 
 # Alias for Eclipse Java IDE
 alias eclipse="flatpak run org.eclipse.Java"
-alias datagrip='env _JAVA_AWT_WM_NONREPARENTING=1 /opt/DataGrip-2020.2.3/bin/datagrip.sh'
+alias datagrip='/snap/bin/datagrip'
 
 mkassets() {
   mkdir -p assets/css assets/js assets/api assets/images
@@ -200,3 +200,4 @@ mkassets() {
   echo "Directory structure and files created successfully in $(pwd)"
 }
 
+alias notepad="leafpad"
