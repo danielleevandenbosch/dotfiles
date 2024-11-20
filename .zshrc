@@ -201,3 +201,6 @@ mkassets() {
 }
 
 alias notepad="leafpad"
+
+alias mistral-commit="$HOME/dotfiles/mistral-commit.sh"
+
