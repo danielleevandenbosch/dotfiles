@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Setup Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+        }
+        code {
+            color: #e74c3c;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>LLM Setup Guide</h1>
+    <p>This document provides instructions for installing and setting up Ollama and Mistral in your local environment for efficient use of large language models (LLMs).</p>
+
+    <h2>Prerequisites</h2>
+    <ul>
+        <li><strong>Operating System:</strong> Linux, macOS, or Windows (with WSL)</li>
+        <li><strong>Hardware:</strong>
+            <ul>
+                <li>GPU with sufficient VRAM (e.g., 1080 Ti or newer recommended)</li>
+                <li>At least 16GB of system RAM</li>
+            </ul>
+        </li>
+        <li><strong>Dependencies:</strong>
+            <ul>
+                <li>Python 3.8 or newer</li>
+                <li>Pip (Python package manager)</li>
+                <li>Git</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Step 1: Install Ollama</h2>
+    <h3>1.1 Download and Install Ollama</h3>
+    <p>Visit the official Ollama website: <a href="https://ollama.ai/" target="_blank">https://ollama.ai/</a>. Download the installer for your OS and follow the installation instructions.</p>
+
+    <h3>1.2 Verify Installation</h3>
+    <pre><code>ollama --version</code></pre>
+
+    <h3>1.3 Download the Mistral Model</h3>
+    <pre><code>ollama pull mistral</code></pre>
+
+    <h3>1.4 Test the Mistral Model</h3>
+    <pre><code>ollama run mistral --prompt "Hello, how are you?"</code></pre>
+
+    <h2>Step 2: Install Mistral with Transformers</h2>
+    <h3>2.1 Install Required Python Packages</h3>
+    <pre><code>pip install transformers torch accelerate</code></pre>
+
+    <h3>2.2 Download the Mistral Model</h3>
+    <pre><code>
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+# Load Mistral model
+model_name = "mistralai/mistral-7b"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+
+# Test the model
+inputs = tokenizer("Hello, how are you?", return_tensors="pt")
+outputs = model.generate(**inputs)
+print(tokenizer.decode(outputs[0]))
+    </code></pre>
+
+    <h3>2.3 Optimize for Limited Hardware</h3>
+    <p>If you encounter memory issues, use quantized models:</p>
+    <pre><code>pip install bitsandbytes</code></pre>
+    <p>Modify the code:</p>
+    <pre><code>
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_4bit=True)
+    </code></pre>
+
+    <h2>Step 3: Run Mistral in a Docker Container (Optional)</h2>
+    <h3>3.1 Install Docker</h3>
+    <p>Follow the Docker installation guide: <a href="https://docs.docker.com/get-docker/" target="_blank">https://docs.docker.com/get-docker/</a></p>
+
+    <h3>3.2 Pull a Preconfigured Mistral Image</h3>
+    <pre><code>docker pull mistralai/mistral-docker</code></pre>
+
+    <h3>3.3 Run the Docker Container</h3>
+    <pre><code>docker run -it --gpus all mistralai/mistral-docker</code></pre>
+
+    <h2>Troubleshooting</h2>
+    <ul>
+        <li><strong>Insufficient VRAM:</strong> Use smaller or quantized models.</li>
+        <li><strong>Ollama Issues:</strong> Check the <a href="https://ollama.ai/docs" target="_blank">Ollama Documentation</a>.</li>
+        <li><strong>Slow Performance:</strong> Update your GPU drivers and use optimized libraries like <code>accelerate</code> or <code>ONNX</code>.</li>
+    </ul>
+
+    <h2>Additional Resources</h2>
+    <ul>
+        <li><a href="https://ollama.ai/docs" target="_blank">Ollama Documentation</a></li>
+        <li><a href="https://github.com/mistralai" target="_blank">Mistral GitHub Repository</a></li>
+        <li><a href="https://huggingface.co/transformers" target="_blank">Hugging Face Transformers</a></li>
+    </ul>
+</body>
+</html>
+
