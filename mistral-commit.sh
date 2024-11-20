@@ -9,7 +9,7 @@ else
 fi
 
 # Generate commit message using Mistral
-commit_message=$(ollama run mistral --prompt "Write a concise git commit message for the following changes: $git_diff")
+commit_message=$(echo "Write a concise git commit message for the following changes: $git_diff" | ollama run mistral)
 
 # Display the commit message
 echo "Generated Commit Message:"
