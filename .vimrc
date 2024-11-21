@@ -50,22 +50,6 @@ nnoremap <C-Right> :tabnext<CR>
 set list
 set listchars=tab:▸\ ,space:·,eol:¬,trail:·,extends:>,precedes:<
 
-function! InsertAsClause()
-    " Get the current column number
-    let l:col = col('.')
-    " Calculate how many spaces are needed to reach the 80th column
-    let l:spaces_needed = 80 - l:col
-    " If already past the 80th column, don't add spaces
-    if l:spaces_needed < 0
-        let l:spaces_needed = 1
-    endif
-    " Insert the spaces and the AS keyword
-    execute "normal! i" . repeat(' ', l:spaces_needed) . "AS "
-endfunction
-
-" Map the function to a key combination, <Leader>a in this case
-nnoremap <Leader>a :call InsertAsClause()<CR>
-
 function! PromptReplaceGlobal()
     let l:find = input('Find: ')
     let l:replace = input('Replace with: ')
@@ -83,8 +67,8 @@ Plug 'github/copilot.vim'
 Plug 'mattn/emmet-vim'
 call plug#end()
 
-" Map Tab to expand Emmet abbreviations like in VS Code
-" Set Emmet's expand abbreviation key to Ctrl+Tab
-let g:user_emmet_expandabbr_key = '<C-Tab>'
-" Remap Emmet expand key for specific file types if necessary
-autocmd FileType html,php,css,xml,js imap <silent><expr> <C-Tab> emmet#expandAbbrIntelligent('<C-Tab>')
+map <Esc>[Z <C-Space>
+imap <Esc>[Z <C-Space>
+let g:user_emmet_expandabbr_key = '<C-Space>'
+autocmd FileType html,php,css,xml,js imap <silent><expr> <C-Space> emmet#expandAbbrIntelligent('<C-Space>')
+
