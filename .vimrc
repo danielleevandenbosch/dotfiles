@@ -72,3 +72,7 @@ imap <Esc>[Z <C-Space>
 let g:user_emmet_expandabbr_key = '<C-Space>'
 autocmd FileType html,php,css,xml,js imap <silent><expr> <C-Space> emmet#expandAbbrIntelligent('<C-Space>')
 
+
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
