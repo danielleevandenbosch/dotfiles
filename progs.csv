@@ -22,3 +22,4 @@ git,https://github.com/github/copilot.vim.git,../.config/nvim/pack/github/start/
 ,xbindkeys
 ,leafpad,is a simple text editor.
 ,maim,is a screenshot utility. Must be installed for LARBS print screen.
+,lf,is a terminal file manager.

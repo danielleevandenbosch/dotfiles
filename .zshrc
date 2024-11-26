@@ -204,3 +204,16 @@ alias notepad="leafpad"
 
 alias mistral-commit="$HOME/dotfiles/mistral-commit.sh"
 
+
+
+
+lfcd() {
+    tmp="$(mktemp)"
+    (lf -last-dir-path="$tmp" "$@")
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && cd "$dir"
+    fi
+}
+
