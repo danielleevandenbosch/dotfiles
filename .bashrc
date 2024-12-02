@@ -117,7 +117,16 @@ if ! shopt -oq posix; then
 fi
 
 alias cdhtml='cd /var/www/html'
-
+alias cdmnt = 'cd /mnt/'
+alias cdetc = 'cd /etc/'
+alias cdvar = 'cd /var/'
+alias cdusr = 'cd /usr/'
+alias cdhome = 'cd /home/'
+alias cdroot = 'cd /root/'
+alias cddev = 'cd /dev/'
+alias cdbin = 'cd /bin/'
+alias cdboot = 'cd /boot/'
+alias cdlib = 'cd /lib/'
 # Bash History Configuration
 shopt -s histappend
 HISTSIZE=10000

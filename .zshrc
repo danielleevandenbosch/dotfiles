@@ -147,6 +147,19 @@ export NVM_DIR="$HOME/.nvm"
 
 alias cdhtml='cd /var/www/html'
 
+alias cdmnt = 'cd /mnt/'
+alias cdetc = 'cd /etc/'
+alias cdvar = 'cd /var/'
+alias cdusr = 'cd /usr/'
+alias cdhome = 'cd /home/'
+alias cdroot = 'cd /root/'
+alias cddev = 'cd /dev/'
+alias cdbin = 'cd /bin/'
+alias cdboot = 'cd /boot/'
+alias cdlib = 'cd /lib/'
+
+
+
 gacp()
 {
     git add -A
