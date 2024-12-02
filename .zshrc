@@ -206,6 +206,12 @@ alias mistral-commit="$HOME/dotfiles/mistral-commit.sh"
 
 alias l="clear"
 
+lll() {
+    clear
+    print -P "$PS1 ll"
+    sleep 0.1
+    ls -alh
+}
 
 lfcd() {
     tmp="$(mktemp)"
