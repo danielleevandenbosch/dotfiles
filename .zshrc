@@ -147,16 +147,16 @@ export NVM_DIR="$HOME/.nvm"
 
 alias cdhtml='cd /var/www/html'
 
-alias cdmnt = 'cd /mnt/'
-alias cdetc = 'cd /etc/'
-alias cdvar = 'cd /var/'
-alias cdusr = 'cd /usr/'
-alias cdhome = 'cd /home/'
-alias cdroot = 'cd /root/'
-alias cddev = 'cd /dev/'
-alias cdbin = 'cd /bin/'
-alias cdboot = 'cd /boot/'
-alias cdlib = 'cd /lib/'
+alias cdmnt='cd /mnt/'
+alias cdetc='cd /etc/'
+alias cdvar='cd /var/'
+alias cdusr='cd /usr/'
+alias cdhome='cd /home/'
+alias cdroot='cd /root/'
+alias cddev='cd /dev/'
+alias cdbin='cd /bin/'
+alias cdboot='cd /boot/'
+alias cdlib='cd /lib/'
 
 
 
@@ -213,6 +213,13 @@ mkassets() {
   echo "Directory structure and files created successfully in $(pwd)"
 }
 
+e()
+{
+    # open the current directory in the default file manager
+    
+}
+
+
 alias notepad="leafpad"
 
 alias mistral-commit="$HOME/dotfiles/mistral-commit.sh"
@@ -233,6 +240,34 @@ lfcd() {
         dir="$(cat "$tmp")"
         rm -f "$tmp"
         [ -d "$dir" ] && cd "$dir"
+    fi
+}
+
+e() 
+{
+    # Open the current directory in the default file explorer.
+    if command -v nemo &>/dev/null; then
+        nemo .
+    elif command -v nautilus &>/dev/null; then
+        nautilus .
+    elif command -v dolphin &>/dev/null; then
+        dolphin .
+    elif command -v thunar &>/dev/null; then
+        thunar .
+    elif command -v pcmanfm &>/dev/null; then
+        pcmanfm .
+    elif command -v ranger &>/dev/null; then
+        ranger .
+    elif command -v vifm &>/dev/null; then
+        vifm .
+    elif command -v caja &>/dev/null; then
+        caja .
+    elif command -v krusader &>/dev/null; then
+        krusader .
+    elif command -v konqueror &>/dev/null; then
+        konqueror .
+    else
+        echo "No supported file explorer found."
     fi
 }
 
