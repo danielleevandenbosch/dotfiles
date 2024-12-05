@@ -6,6 +6,7 @@ syntax on
 
 " Show line numbers
 set number
+set relativenumber
 
 " Set tabstop and shiftwidth for proper indentation
 set tabstop=4

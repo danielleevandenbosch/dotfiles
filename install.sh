@@ -149,6 +149,7 @@ set_xprofile_default
 create_symlink "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
 create_symlink "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 create_symlink "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+create_symlink "$DOTFILES_DIR/.scimrc" "$HOME/.scimrc"
 create_symlink "$DOTFILES_DIR/.config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
 
 echo_color $GREEN "Dotfiles installation completed."

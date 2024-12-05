@@ -1,0 +1,14 @@
+set autocalc                # Automatically recalculate cells
+set numeric                 # Treat input as numeric by default
+set numeric_decimal=2       # Set numeric precision to 2 decimal places
+set overlap                 # Allow cell content to overlap if the next cell is empty
+set xlsx_readformulas       # Enable reading formulas from XLSX files
+set grid                    # Enable grid lines
+set nocursor                # Hide the cursor (optional for aesthetics)
+set nocursortime            # Hide the cursor on timestamps
+set autojustify             # Automatically justify text
+set autowrap                # Automatically wrap text in cells
+set numeric_cellcolor=2     # Highlight numeric cells with color (optional)
+set external_pipe="vim -c ':set nu'"  # Use Vim for external edits
+set borders
+
