@@ -77,3 +77,8 @@ autocmd FileType html,php,css,xml,js imap <silent><expr> <C-Space> emmet#expandA
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
+set scrolloff=8
+
+nnoremap <CR> i<CR><Esc>
+nnoremap <Space> i <Esc>
+
