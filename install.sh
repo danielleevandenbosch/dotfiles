@@ -17,7 +17,8 @@ echo_color() {
 
 
 # Function to install applications from a CSV file
-install_applications() {
+install_applications() 
+{
     local csv_path=$1
     while IFS=, read -r source name purpose; do
         # Skip lines starting with '#'
@@ -44,11 +45,18 @@ install_applications() {
             echo_color $YELLOW "Installing $name from AUR... $purpose"
             # AUR installation logic here (e.g., using yay or another AUR helper)
             yay -S --noconfirm "$name"
+        elif [ "$source" == "curl" ]; then
+            url="$name"
+            target_file="$purpose"
+            echo_color $YELLOW "Curling $url to $target_file"
+            mkdir -p "$(dirname "$target_file")"
+            curl -fLo "$target_file" --create-dirs "$url"
+            echo_color $GREEN "Downloaded $target_file from $url"
         else
             echo_color $RED "Unknown source $source for $name. Skipping."
         fi
     done < "$csv_path"
-}
+} # End of install_applications function
 
 # Check if the operating system is Debian or Arch based and install applications
 if [ -f "$CSV_FILE_PATH" ]; then
@@ -58,7 +66,8 @@ else
 fi
 
 # Define helper function for creating directories and symlinks
-create_symlink() {
+create_symlink() 
+{
     local source=$1
     local target=$2
 
@@ -89,7 +98,8 @@ create_symlink() {
 }
 
 # Function to set Zsh as the default shell if it exists
-set_zsh_default() {
+set_zsh_default() 
+{
     if command -v zsh &> /dev/null; then
         echo_color $YELLOW "Zsh is installed. Do you want to set it as the default shell? (y/n)"
         read -r choice
@@ -111,33 +121,33 @@ set_zsh_default() {
 set_xinitrc_default()
 {
     # does the computer have dwm installed?
-        echo_color $YELLOW "Do you want to set xinitrc taylored for dwm? (y/n)"
-        read -r choice
-        if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-            if [ -f "$HOME/.xinitrc" ]; then
-                echo_color $YELLOW "Backing up and replacing $HOME/.xinitrc"
-                mv "$HOME/.xinitrc" "$HOME/.xinitrc.backup"
-            fi
-            create_symlink "$DOTFILES_DIR/.xinitrc" "$HOME/.xinitrc"
-        else
-            echo_color $GREEN "Not setting Dwm as the default window manager."
+    echo_color $YELLOW "Do you want to set xinitrc taylored for dwm? (y/n)"
+    read -r choice
+    if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
+        if [ -f "$HOME/.xinitrc" ]; then
+            echo_color $YELLOW "Backing up and replacing $HOME/.xinitrc"
+            mv "$HOME/.xinitrc" "$HOME/.xinitrc.backup"
         fi
+        create_symlink "$DOTFILES_DIR/.xinitrc" "$HOME/.xinitrc"
+    else
+        echo_color $GREEN "Not setting Dwm as the default window manager."
+    fi
 }
 
 set_xprofile_default()
 {
     # does the computer have dwm installed?
-        echo_color $YELLOW "Do you want to set the dotfiles xprofile taylored for dwm? (y/n)"
-        read -r choice
-        if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-            if [ -f "$HOME/.xprofile" ]; then
-                echo_color $YELLOW "Backing up and replacing $HOME/.xprofile"
-                mv "$HOME/.xprofile" "$HOME/.xprofile.backup"
-            fi
-            create_symlink "$DOTFILES_DIR/.xprofile" "$HOME/.xprofile"
-        else
-            echo_color $GREEN "Not setting Dwm as the default window manager."
+    echo_color $YELLOW "Do you want to set the dotfiles xprofile taylored for dwm? (y/n)"
+    read -r choice
+    if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
+        if [ -f "$HOME/.xprofile" ]; then
+            echo_color $YELLOW "Backing up and replacing $HOME/.xprofile"
+            mv "$HOME/.xprofile" "$HOME/.xprofile.backup"
         fi
+        create_symlink "$DOTFILES_DIR/.xprofile" "$HOME/.xprofile"
+    else
+        echo_color $GREEN "Not setting Dwm as the default window manager."
+    fi
 }
 
 # Attempt to set Zsh as the default shell (Added before the completion message)
@@ -151,6 +161,16 @@ create_symlink "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 create_symlink "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 create_symlink "$DOTFILES_DIR/.scimrc" "$HOME/.scimrc"
 create_symlink "$DOTFILES_DIR/.config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
+
+# Handle init.lua integration
+if [ -f "$DOTFILES_DIR/init.lua" ]; then
+    create_symlink "$DOTFILES_DIR/init.lua" "$HOME/.config/nvim/init.lua"
+    echo_color $GREEN "init.lua has been integrated into Neovim configuration."
+else
+    echo_color $RED "init.lua file not found in $DOTFILES_DIR. Skipping."
+fi
+
+
 
 echo_color $GREEN "Dotfiles installation completed."
 

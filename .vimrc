@@ -1,6 +1,6 @@
+
 " Set the default encoding to UTF-8
 set encoding=utf-8
-
 " Enable syntax highlighting
 syntax on
 
@@ -66,6 +66,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'github/copilot.vim'
 " Add the Emmet plugin with the correct spelling
 Plug 'mattn/emmet-vim'
+
+Plug 'mfussenegger/nvim-dap'
+
+
 call plug#end()
 
 map <Esc>[Z <C-Space>
@@ -81,4 +85,5 @@ set scrolloff=8
 
 nnoremap <CR> i<CR><Esc>
 nnoremap <Space> i <Esc>
+
 

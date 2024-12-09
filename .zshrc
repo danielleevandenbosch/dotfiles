@@ -36,7 +36,8 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 # Change cursor shape for different vi modes.
-function zle-keymap-select () {
+function zle-keymap-select () 
+{
     case $KEYMAP in
         vicmd) echo -ne '\e[1 q';;      # block
         viins|main) echo -ne '\e[5 q';; # beam
@@ -52,7 +53,8 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Use lf to switch directories and bind it to ctrl-o
-lfcd () {
+lfcd () 
+{
     tmp="$(mktemp -uq)"
     trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
     lf -last-dir-path="$tmp" "$@"
@@ -117,20 +119,24 @@ alias copy='cp'
 alias move='mv'
 alias del='rm -rf'
 alias ren='mv'
-
+alias ogvim="/usr/bin/vim"
+alias ognano="/usr/bin/nano"
 alias vim="nvim"
 
 
-function headll {
+function headll 
+{
     ll | head
 }
-function tailll {
+function tailll 
+{
     ll | tail
 }
 
 alias headll=headll
 alias tailll=tailll
-clip() {
+clip()
+{
   if [ -f "$1" ]; then
     cat "$1" | xclip -selection clipboard
     echo "Contents of $1 copied to clipboard."
@@ -205,7 +211,8 @@ alias outlook="flatpak run io.github.mahmoudbahaa.outlook_for_linux"
 alias eclipse="flatpak run org.eclipse.Java"
 alias datagrip='/snap/bin/datagrip'
 
-mkassets() {
+mkassets() 
+{
   mkdir -p assets/css assets/js assets/api assets/images
   touch assets/css/index.css
   touch assets/js/index.js
@@ -226,14 +233,16 @@ alias mistral-commit="$HOME/dotfiles/mistral-commit.sh"
 
 alias l="clear"
 
-lll() {
+lll() 
+{
     clear
     print -P "$PS1 ll"
     sleep 0.1
     ls -alh
 }
 
-lfcd() {
+lfcd() 
+{
     tmp="$(mktemp)"
     (lf -last-dir-path="$tmp" "$@")
     if [ -f "$tmp" ]; then
@@ -270,4 +279,11 @@ e()
         echo "No supported file explorer found."
     fi
 }
+
+
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 

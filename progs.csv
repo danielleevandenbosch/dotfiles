@@ -1,4 +1,4 @@
-#TAG,NAME IN REPO (or git url),PURPOSE (should be a verb phrase to sound right while installing)
+#TAG,NAME IN REPO (or git url),PURPOSE (should be a verb phrase to sound right while installing) this can also be the target file location. 
 ,git
 ,zsh
 ,htop,is a graphical and colorful system monitor.
@@ -23,3 +23,4 @@ git,https://github.com/github/copilot.vim.git,../.config/nvim/pack/github/start/
 ,leafpad,is a simple text editor.
 ,maim,is a screenshot utility. Must be installed for LARBS print screen.
 ,lf,is a terminal file manager.
+curl,https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim,~/.vim/autoload/plug.vim
