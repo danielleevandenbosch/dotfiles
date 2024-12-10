@@ -4,6 +4,7 @@ set encoding=utf-8
 " Enable syntax highlighting
 syntax on
 
+
 " Show line numbers
 set number
 set relativenumber
@@ -84,6 +85,13 @@ vnoremap <S-Tab> <gv
 set scrolloff=8
 
 nnoremap <CR> i<CR><Esc>
-nnoremap <Space> i <Esc>
+nnoremap <Space> i <Space><Esc>l
 
+nnoremap <C-s> :w<CR>
+
+" Save in insert mode
+inoremap <C-s> <Esc>:w<CR>i
+
+" Save in visual mode
+vnoremap <C-s> <Esc>:w<CR>v
 
