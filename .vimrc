@@ -95,3 +95,15 @@ inoremap <C-s> <Esc>:w<CR>i
 " Save in visual mode
 vnoremap <C-s> <Esc>:w<CR>v
 
+" Map 'n' to create a new file in netrw
+autocmd FileType netrw nmap <buffer> n :call CreateFileInNetrw()<CR>
+
+" Function to prompt for a new file name in netrw
+function! CreateFileInNetrw()
+    let l:filename = input("New File Name: ")
+    if l:filename != ""
+        execute "edit " . expand("%:p") . "/" . l:filename
+    endif
+endfunction
+
+
