@@ -106,4 +106,7 @@ function! CreateFileInNetrw()
     endif
 endfunction
 
+" Map Caps Lock to Escape in Vim
+inoremap <CapsLock> <Esc>
+cnoremap <CapsLock> <Esc>
 
