@@ -6,8 +6,11 @@
 
 feh --bg-scale ~/.local/share/bg.jpg  # or your correct background path
 
-setxkbmap -option caps:escape_shifted_capslock
-
+# Remap Caps Lock to Escape
+# setxkbmap -option caps:escape
+# 
+# Make Caps Lock also act as Super when held
+(sleep 1 && xcape -e 'Caps_Lock=Escape;Super_L=Escape') &
 
 # Start picom for transparency
 picom -b
