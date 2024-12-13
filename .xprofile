@@ -6,7 +6,7 @@
 
 feh --bg-scale ~/.local/share/bg.jpg  # or your correct background path
 
-
+setxkbmap -option caps:escape_shifted_capslock
 
 
 # Start picom for transparency

@@ -5,6 +5,8 @@ feh --bg-scale ~/.local/share/bg.jpg  # or your correct background path
 ~/setup-monitors.sh
 
 
+# Remap Caps Lock to Escape and Shift + Caps Lock to Caps Lock
+setxkbmap -option caps:escape_shifted_capslock
 
 # Start picom for transparency
 picom -b
