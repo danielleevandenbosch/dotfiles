@@ -1,4 +1,3 @@
-
 " Set the default encoding to UTF-8
 set encoding=utf-8
 " Enable syntax highlighting
@@ -85,7 +84,7 @@ vnoremap <S-Tab> <gv
 set scrolloff=8
 
 nnoremap <CR> i<CR><Esc>
-nnoremap <Space> i <Space><Esc>l
+nnoremap <Space> i <Esc>l
 
 nnoremap <C-s> :w<CR>
 
@@ -109,4 +108,12 @@ endfunction
 " Map Caps Lock to Escape in Vim
 inoremap <CapsLock> <Esc>
 cnoremap <CapsLock> <Esc>
+
+
+
+" Resize splits with Ctrl + hjkl
+nnoremap <C-h> :vertical resize -2<CR>   " Decrease width
+nnoremap <C-l> :vertical resize +2<CR>   " Increase width
+nnoremap <C-j> :resize +2<CR>            " Increase height
+nnoremap <C-k> :resize -2<CR>            " Decrease height
 
