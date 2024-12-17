@@ -1,4 +1,5 @@
 " Set the default encoding to UTF-8
+let mapleader =","
 set encoding=utf-8
 " Enable syntax highlighting
 syntax on
@@ -68,7 +69,8 @@ Plug 'github/copilot.vim'
 Plug 'mattn/emmet-vim'
 
 Plug 'mfussenegger/nvim-dap'
-
+" Commentary plugin for toggling comments
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -116,4 +118,21 @@ nnoremap <C-h> :vertical resize -2<CR>   " Decrease width
 nnoremap <C-l> :vertical resize +2<CR>   " Increase width
 nnoremap <C-j> :resize +2<CR>            " Increase height
 nnoremap <C-k> :resize -2<CR>            " Decrease height
+nnoremap ZS :w<CR>
 
+map <leader>t :vsp \| terminal<CR>
+map <leader>w :w<CR>
+map <leader>q :q<CR>
+map <leader>W :wq<CR>
+
+map <leader>o :setlocal spell! spelllang=en_us<CR>
+
+map <leader>l :set wrap!<CR>
+map <leader>v :vs .<CR>
+map <leader>V :vsp ~/dotfiles/.vimrc<CR>
+" Toggle comment with leader k
+nmap <leader>k :Commentary<CR>
+vmap <leader>k :Commentary<CR>
+
+" marcos 
+nnoremap <F5> @q
