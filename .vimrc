@@ -139,22 +139,21 @@ map <leader>o :setlocal spell! spelllang=en_us<CR>
 " map <leader>; :EasyAlign /;/r0<CR>:silent! %s/; \{1,}/; /g<CR>
 " map <leader>: :EasyAlign /:/r0<CR>:silent! %s/: \{1,}/: /g<CR>
 
-" EasyAlign with exactly one trailing space
-map <leader>, :EasyAlign /,/r0<CR>:silent! %s/, */ , /g<CR>
-map <leader>= :EasyAlign /=/r0<CR>:silent! %s/= */ = /g<CR>
-map <leader>: :EasyAlign /:/r0<CR>:silent! %s/: */ : /g<CR>
-map <leader>( :EasyAlign /(/r0<CR>:silent! %s/( */ ( /g<CR>
-map <leader>) :EasyAlign /)/r0<CR>:silent! %s/) */ ) /g<CR>
-map <leader>; :EasyAlign /;/r0<CR>:silent! %s/; */ ; /g<CR>
-map <leader>{ :EasyAlign /{/r0<CR>:silent! %s/{ */ { /g<CR>
-map <leader>} :EasyAlign /}/r0<CR>:silent! %s/} */ } /g<CR>
-map <leader>- :EasyAlign /-/r0<CR>:silent! %s/- */ - /g<CR>
-map <leader>+ :EasyAlign /+/r0<CR>:silent! %s/+ */ + /g<CR>
-map <leader>< :EasyAlign /</r0<CR>:silent! %s/< */ < /g<CR>
-map <leader>> :EasyAlign />/r0<CR>:silent! %s/> */ > /g<CR>
-map <leader>* :EasyAlign /\*/r0<CR>:silent! %s/\* */ * /g<CR>
-map <leader>& :EasyAlign /&/r0<CR>:silent! %s/& */ & /g<CR>
-
+" EasyAlign with exactly one trailing space for visual selection
+vnoremap <leader>, :EasyAlign /,/r0<CR>:silent! '<,'>s/, */ , /g<CR>gv
+vnoremap <leader>= :EasyAlign /=/r0<CR>:silent! '<,'>s/= */ = /g<CR>gv
+vnoremap <leader>: :EasyAlign /:/r0<CR>:silent! '<,'>s/: */ : /g<CR>gv
+vnoremap <leader>( :EasyAlign /(/r0<CR>:silent! '<,'>s/( */ ( /g<CR>gv
+vnoremap <leader>) :EasyAlign /)/r0<CR>:silent! '<,'>s/) */ ) /g<CR>gv
+vnoremap <leader>; :EasyAlign /;/r0<CR>:silent! '<,'>s/; */ ; /g<CR>gv
+vnoremap <leader>{ :EasyAlign /{/r0<CR>:silent! '<,'>s/{ */ { /g<CR>gv
+vnoremap <leader>} :EasyAlign /}/r0<CR>:silent! '<,'>s/} */ } /g<CR>gv
+vnoremap <leader>- :EasyAlign /-/r0<CR>:silent! '<,'>s/- */ - /g<CR>gv
+vnoremap <leader>+ :EasyAlign /+/r0<CR>:silent! '<,'>s/+ */ + /g<CR>gv
+vnoremap <leader>< :EasyAlign /</r0<CR>:silent! '<,'>s/< */ < /g<CR>gv
+vnoremap <leader>> :EasyAlign />/r0<CR>:silent! '<,'>s/> */ > /g<CR>gv
+vnoremap <leader>* :EasyAlign /\*/r0<CR>:silent! '<,'>s/\* */ * /g<CR>gv
+vnoremap <leader>& :EasyAlign /&/r0<CR>:silent! '<,'>s/& */ & /g<CR>gv
 
 
 map <leader>l :set wrap!<CR>
