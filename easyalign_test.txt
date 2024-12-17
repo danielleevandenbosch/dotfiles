@@ -1,0 +1,5 @@
+$stmt->bindParam(':work_centre'  , $work_centre)  ;
+$stmt->bindParam(':part_number'  , $part_number)  ;
+$stmt->bindParam(':comments'     , $comments)     ;ZZ
+$total=10                                         ; 
+ 

@@ -3,6 +3,8 @@ let mapleader =","
 set encoding=utf-8
 " Enable syntax highlighting
 syntax on
+" Turn off color column
+set colorcolumn=
 
 
 " Show line numbers
@@ -72,6 +74,8 @@ Plug 'mfussenegger/nvim-dap'
 " Commentary plugin for toggling comments
 Plug 'tpope/vim-commentary'
 
+Plug 'junegunn/vim-easy-align'
+
 call plug#end()
 
 map <Esc>[Z <C-Space>
@@ -126,6 +130,32 @@ map <leader>q :q<CR>
 map <leader>W :wq<CR>
 
 map <leader>o :setlocal spell! spelllang=en_us<CR>
+
+" easy align with out trailing space
+" map <leader>, :EasyAlign /,/r0<CR>:silent! %s/, \{1,}/, /g<CR>
+" map <leader>= :EasyAlign /=/r0<CR>:silent! %s/= \{1,}/= /g<CR>
+" map <leader>( :EasyAlign /(/r0<CR>:silent! %s/( \{1,}/( /g<CR>
+" map <leader>) :EasyAlign /)/r0<CR>:silent! %s/) \{1,}/) /g<CR>
+" map <leader>; :EasyAlign /;/r0<CR>:silent! %s/; \{1,}/; /g<CR>
+" map <leader>: :EasyAlign /:/r0<CR>:silent! %s/: \{1,}/: /g<CR>
+
+" EasyAlign with exactly one trailing space
+map <leader>, :EasyAlign /,/r0<CR>:silent! %s/, */ , /g<CR>
+map <leader>= :EasyAlign /=/r0<CR>:silent! %s/= */ = /g<CR>
+map <leader>: :EasyAlign /:/r0<CR>:silent! %s/: */ : /g<CR>
+map <leader>( :EasyAlign /(/r0<CR>:silent! %s/( */ ( /g<CR>
+map <leader>) :EasyAlign /)/r0<CR>:silent! %s/) */ ) /g<CR>
+map <leader>; :EasyAlign /;/r0<CR>:silent! %s/; */ ; /g<CR>
+map <leader>{ :EasyAlign /{/r0<CR>:silent! %s/{ */ { /g<CR>
+map <leader>} :EasyAlign /}/r0<CR>:silent! %s/} */ } /g<CR>
+map <leader>- :EasyAlign /-/r0<CR>:silent! %s/- */ - /g<CR>
+map <leader>+ :EasyAlign /+/r0<CR>:silent! %s/+ */ + /g<CR>
+map <leader>< :EasyAlign /</r0<CR>:silent! %s/< */ < /g<CR>
+map <leader>> :EasyAlign />/r0<CR>:silent! %s/> */ > /g<CR>
+map <leader>* :EasyAlign /\*/r0<CR>:silent! %s/\* */ * /g<CR>
+map <leader>& :EasyAlign /&/r0<CR>:silent! %s/& */ & /g<CR>
+
+
 
 map <leader>l :set wrap!<CR>
 map <leader>v :vs .<CR>
