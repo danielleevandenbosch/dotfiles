@@ -128,7 +128,7 @@ map <leader>t :vsp \| terminal<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>W :wq<CR>
-
+map <leader>e :r !esv
 map <leader>o :setlocal spell! spelllang=en_us<CR>
 
 " easy align with out trailing space
@@ -165,3 +165,6 @@ vmap <leader>k :Commentary<CR>
 
 " marcos 
 nnoremap <F5> @q
+
+
+
