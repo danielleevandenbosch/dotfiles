@@ -166,5 +166,5 @@ vmap <leader>k :Commentary<CR>
 " marcos 
 nnoremap <F5> @q
 
-
+vnoremap <leader>/ y/<C-r>"<CR>
 

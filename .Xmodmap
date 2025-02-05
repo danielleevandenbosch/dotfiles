@@ -1,8 +1,5 @@
-remove Lock = Caps_Lock
-keysym Caps_Lock = Escape
-add Mod4 = Escape
-
-
 remove Mod4 = Escape
 keysym Escape = Escape
 add Mod4 = Escape
+
+keycode 65 = space underscore
