@@ -6,7 +6,6 @@ syntax on
 " Turn off color column
 set colorcolumn=
 
-
 " Show line numbers
 set number
 set relativenumber
@@ -61,7 +60,7 @@ function! PromptReplaceGlobal()
     execute l:cmd
 endfunction
 
-nnoremap <C-R> :call PromptReplaceGlobal()<CR>
+nnoremap <leader><C-R> :call PromptReplaceGlobal()<CR>
 
 " Initialize vim-plug in Neovim's plugin directory
 call plug#begin('~/.local/share/nvim/plugged')
@@ -168,3 +167,53 @@ nnoremap <F5> @q
 
 vnoremap <leader>/ y/<C-r>"<CR>
 
+" --- Intentional Yank Setup ---
+" Anytime you yank with 'y' (normal or visual mode),
+" also store that yank into register z for safe, repeatable pastes.
+
+" Normal mode: yank and save to register z
+nnoremap y y:let @z=@0<CR>
+
+" Visual mode: yank and save to register z
+vnoremap y y:let @z=@0<CR>
+
+" Leader+p will paste from register z so you can reuse your last intentional yank easily
+nnoremap <leader>p "zp
+vnoremap <leader>p "zp
+
+" Optional: show current yank in register z (leader+y)
+nnoremap <leader>y :echo @z<CR>
+
+
+" --foldings--
+set foldmethod=manual
+set foldenable
+set foldlevel=99
+set foldcolumn=1
+
+
+function! OpenFoldCheatSheet()
+    " Open in vertical split
+    vnew
+    setlocal buftype=nofile
+    setlocal bufhidden=wipe
+    setlocal nobuflisted
+    setlocal noswapfile
+    call setline(1, [
+        \ "Folding Cheat Sheet:"
+        \ , "  zf - Create fold (visual or zf#j)"
+        \ , "  zd - Delete fold under cursor"
+        \ , "  zE - Delete all folds"
+        \ , "  zo - Open fold"
+        \ , "  zc - Close fold"
+        \ , "  za - Toggle fold"
+        \ , "  zR - Open all folds"
+        \ , "  zM - Close all folds"
+        \ , "  zm - Increase fold (close deeper)"
+        \ , "  zr - Reduce fold (open shallower)"
+        \ ])
+    setlocal nomodifiable
+    wincmd p   " Go back to the previous window
+endfunction
+
+nnoremap zh :call OpenFoldCheatSheet()<CR>
