@@ -165,25 +165,6 @@ vmap <leader>k :Commentary<CR>
 " marcos 
 nnoremap <F5> @q
 
-vnoremap <leader>/ y/<C-r>"<CR>
-
-" --- Intentional Yank Setup ---
-" Anytime you yank with 'y' (normal or visual mode),
-" also store that yank into register z for safe, repeatable pastes.
-
-" Normal mode: yank and save to register z
-nnoremap y y:let @z=@0<CR>
-
-" Visual mode: yank and save to register z
-vnoremap y y:let @z=@0<CR>
-
-" Leader+p will paste from register z so you can reuse your last intentional yank easily
-nnoremap <leader>p "zp
-vnoremap <leader>p "zp
-
-" Optional: show current yank in register z (leader+y)
-nnoremap <leader>y :echo @z<CR>
-
 
 " --foldings--
 set foldmethod=manual
