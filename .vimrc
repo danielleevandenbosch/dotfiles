@@ -75,6 +75,12 @@ Plug 'tpope/vim-commentary'
 
 Plug 'junegunn/vim-easy-align'
 
+" Required for defining custom text objects
+Plug 'kana/vim-textobj-user'
+
+" Adds 'i' and 'a' text objects for HTML tags
+Plug 'whatyouhide/vim-textobj-html'
+
 call plug#end()
 
 map <Esc>[Z <C-Space>

@@ -132,3 +132,4 @@ shopt -s histappend
 HISTSIZE=10000
 HISTFILESIZE=20000
 PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
+. "$HOME/.cargo/env"
