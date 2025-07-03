@@ -204,3 +204,10 @@ function! OpenFoldCheatSheet()
 endfunction
 
 nnoremap zh :call OpenFoldCheatSheet()<CR>
+
+
+
+
+
+" Search for visually selected text with Ctrl+/
+vnoremap <C-_> y/<C-R>"<CR>
