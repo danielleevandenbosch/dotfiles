@@ -178,7 +178,6 @@ set foldenable
 set foldlevel=99
 set foldcolumn=1
 
-
 function! OpenFoldCheatSheet()
     " Open in vertical split
     vnew
@@ -211,3 +210,19 @@ nnoremap zh :call OpenFoldCheatSheet()<CR>
 
 " Search for visually selected text with Ctrl+/
 vnoremap <C-_> y/<C-R>"<CR>
+
+" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+" Auto-stash every yank into register 'z'
+" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+augroup YankStash
+    autocmd!
+    autocmd TextYankPost *
+        \ if v:event.operator is# 'y' |
+        \   call setreg('z', @") |
+        \ endif
+augroup END
+
+" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+" Paste from register 'z' with Ctrl-P
+" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+nnoremap <C-p> "zp
