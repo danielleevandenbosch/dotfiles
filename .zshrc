@@ -163,6 +163,10 @@ alias cddev='cd /dev/'
 alias cdbin='cd /bin/'
 alias cdboot='cd /boot/'
 alias cdlib='cd /lib/'
+alias cdwinhome='cd /mnt/c/Users/dan.vandenbosch/'
+alias cdwinrepos='cd /mnt/c/Users/dan.vandenbosch/source/repos'
+alias cddp='cd /mnt/c/Users/dan.vandenbosch/source/repos/Dynamic_Prints'
+
 
 
 

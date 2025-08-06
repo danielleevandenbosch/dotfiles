@@ -1,4 +1,8 @@
 " Set the default encoding to UTF-8
+"
+" hello, this is my vimrc file
+" It is loosly based on Luke Smith's vimrc
+"
 let mapleader =","
 set encoding=utf-8
 " Enable syntax highlighting
@@ -226,3 +230,32 @@ augroup END
 " Paste from register 'z' with Ctrl-P
 " ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 nnoremap <C-p> "zp
+
+
+
+
+" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+" GitHub Copilot Configuration
+" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+let g:copilot_no_tab_map = v:true
+
+" Accept Copilot suggestion with double comma (Leader + Leader)
+imap <silent><script><expr> <Leader><Leader> copilot#Accept("\<CR>")
+
+" " Only enable Copilot for these filetypes
+" let g:copilot_filetypes = {
+" \   '*': v:false,
+" \   'javascript': v:true,
+" \   'typescript': v:true,
+" \   'python': v:true,
+" \   'c': v:true,
+" \   'cpp': v:true,
+" \   'cs': v:true,
+" \   'java': v:true,
+" \   'lua': v:true,
+" \   'html': v:true,
+" \   'php': v:true,
+" \   'sh': v:true,
+" \   'vim': v:false,
+" \   'markdown': v:false
+" \ }
